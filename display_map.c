@@ -34,23 +34,6 @@ void	display_map(t_vars *data)
 	mlx_loop(data->mlx_ptr);
 }
 
-void	mlx_initialize(t_vars *data)
-{
-	data->w = 0;
-	data->h = 0;
-	data->step_count = 0;
-	data->mlx_ptr = mlx_init();
-	if (!data->mlx_ptr)
-		free_map_exit(data);
-	data->win_ptr = mlx_new_window(data->mlx_ptr, (data->map_width_index + 1)
-			* PIXEL, (data->map_height_index + 1) * PIXEL, "The Game");
-	if (!data->win_ptr)
-	{
-		free(data->mlx_ptr);
-		free_map_exit(data);
-	}
-}
-
 void	display_win(t_vars *data, int x, int y)
 {
 	ft_printf("Current number of movements: %d\n", data->step_count);
@@ -107,15 +90,6 @@ int	movement(int key, t_vars *data)
 	return (0);
 }
 
-void	check_door(t_vars *data)
-{
-	if (data->coin_count == 0)
-	{
-		data->door = mlx_xpm_file_to_image(data->mlx_ptr,
-				"textures/open_door.xpm", &data->w, &data->h);
-	}
-}
-
 void	display_character(t_vars *data, char c)
 {
 	if (c == 'w')
@@ -155,11 +129,4 @@ void	player_movement(t_vars *data, int x, int y)
 	data->player_y += y;
 	data->player_x += x;
 	display_win(data, -1, -1);
-}
-
-int	exit_window(t_vars *data)
-{
-	ft_printf("Error\nWindow is closed\n");
-	game_exit(data);
-	return (1);
 }
