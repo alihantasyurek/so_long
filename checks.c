@@ -6,7 +6,7 @@
 /*   By: atasyure <atasyure@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:34:15 by atasyure          #+#    #+#             */
-/*   Updated: 2023/10/31 15:36:19 by atasyure         ###   ########.tr       */
+/*   Updated: 2023/11/01 15:13:08 by atasyure         ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	name_check2(char *name)
 	if (fd < 0)
 	{
 		ft_printf("Error\nThere is no map in this name!\n");
+		close(fd);
 		exit_no_free();
 	}
 	check_line(fd);
