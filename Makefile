@@ -1,4 +1,5 @@
 NAME			=	so_long
+
 CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror
 AR				=	ar
@@ -16,19 +17,19 @@ SRC				=		main.c \
 LIBFT_PATH		=	./libft
 LIBFT			=	$(LIBFT_PATH)/libft.a
 
-MINILIBX_PATH	=	./minilibx
-MINILIBX	    =   $(MINILIBX_PATH)/libmlx.a
+MINILIBX_PATH		=	./minilibx
+MINILIBX		= $(MINILIBX_PATH)/libmlx.a
 
 all:				$(NAME)
 
-$(NAME):			$(LIBFT) MLX
-					$(CC) $(CFLAGS) $(SRC) $(LIBFT) $(MINILIBX) -framework OpenGL -framework AppKit -o $(NAME)
+$(NAME):			$(LIBFT) $(MINILIBX)
+					$(CC) $(CFLAGS) -o $(NAME) $(SRC) $(LIBFT) -framework OpenGL -framework AppKit $(LIBFT) $(MINILIBX)
 
 $(LIBFT):
 					make -C $(LIBFT_PATH) all
-
-MLX:
+$(MINILIBX):
 					make -C $(MINILIBX_PATH) all
+
 
 clean:
 					make -C $(LIBFT_PATH) clean
@@ -40,4 +41,4 @@ fclean:				clean
 
 re:					fclean all
 
-.PHONY:				all clean fclean re libft
+.PHONY:				all clean fclean re libft minilibx
