@@ -6,7 +6,7 @@
 /*   By: atasyure <atasyure@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:36:39 by atasyure          #+#    #+#             */
-/*   Updated: 2023/10/31 16:59:37 by atasyure         ###   ########.tr       */
+/*   Updated: 2023/11/01 14:50:10 by atasyure         ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,48 +67,14 @@ int	movement(int key, t_vars *data)
 	if (key == ESC)
 		return (ft_printf("Error\nEscape is pressed\n"), game_exit(data), 1);
 	else if (key == W)
-	{
-		display_character(data, 'w');
 		player_movement(data, 0, -1);
-	}
 	else if (key == S)
-	{
-		display_character(data, 's');
 		player_movement(data, 0, 1);
-	}
 	else if (key == A)
-	{
-		display_character(data, 'a');
 		player_movement(data, -1, 0);
-	}
 	else if (key == D)
-	{
-		display_character(data, 'd');
 		player_movement(data, 1, 0);
-	}
-	check_door(data);
 	return (0);
-}
-
-void	display_character(t_vars *data, char c)
-{
-	if (c == 'w')
-		data->character = mlx_xpm_file_to_image(data->mlx_ptr,
-				"textures/character_background.xpm", &data->w, &data->h);
-	if (c == 's')
-		data->character = mlx_xpm_file_to_image(data->mlx_ptr,
-				"textures/character_front.xpm", &data->w, &data->h);
-	if (c == 'a')
-		data->character = mlx_xpm_file_to_image(data->mlx_ptr,
-				"textures/character_left.xpm", &data->w, &data->h);
-	if (c == 'd')
-		data->character = mlx_xpm_file_to_image(data->mlx_ptr,
-				"textures/character_right.xpm", &data->w, &data->h);
-	if (!data->character)
-	{
-		ft_printf("Error\nCharacter textures couldn't load");
-		game_exit(data);
-	}
 }
 
 void	player_movement(t_vars *data, int x, int y)

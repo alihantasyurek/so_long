@@ -6,7 +6,7 @@
 /*   By: atasyure <atasyure@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 13:52:39 by atasyure          #+#    #+#             */
-/*   Updated: 2023/10/31 15:52:30 by atasyure         ###   ########.tr       */
+/*   Updated: 2023/11/01 14:49:28 by atasyure         ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,7 @@ void	display_map(t_vars *data);
 void	game_exit(t_vars *data);
 void	free_map(char **map);
 void	display_win(t_vars *data, int x, int y);
-void	display_character(t_vars *data, char c);
 void	player_movement(t_vars *data, int x, int y);
-void	check_door(t_vars *data);
 int		movement(int key, t_vars *data);
 int		exit_window(t_vars *data);
 void	mlx_initialize(t_vars *data);

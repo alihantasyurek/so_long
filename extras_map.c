@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_checks.c                                       :+:      :+:    :+:   */
+/*   extras_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atasyure <atasyure@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 16:19:10 by atasyure          #+#    #+#             */
-/*   Updated: 2023/10/31 16:32:50 by atasyure         ###   ########.tr       */
+/*   Updated: 2023/11/01 14:49:52 by atasyure         ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,6 @@ void	mlx_initialize(t_vars *data)
 	{
 		free(data->mlx_ptr);
 		free_map_exit(data);
-	}
-}
-
-void	check_door(t_vars *data)
-{
-	if (data->coin_count == 0)
-	{
-		data->door = mlx_xpm_file_to_image(data->mlx_ptr,
-				"textures/open_door.xpm", &data->w, &data->h);
 	}
 }
 
