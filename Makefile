@@ -2,8 +2,6 @@ NAME			=	so_long
 
 CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror
-AR				=	ar
-ARFLAGS 		=	rcs
 RM				=	rm -rf
 
 SRC				=		main.c \
