@@ -14,7 +14,6 @@
 
 void	exit_no_free(void)
 {
-	system("leaks a.out");
 	exit(1);
 }
 
@@ -29,7 +28,6 @@ void	free_map_exit(t_vars *data)
 		i++;
 	}
 	free(data->map);
-	system("leaks a.out");
 	exit(1);
 }
 
